@@ -13,7 +13,7 @@
 					</a><nav class="navigation"><a href="index.html">
 						</a><ul class="cl-effect-16"><a href="index.html">
 							</a><li><a href="/"></a><a class="active" href="/">Home</a></li>
-							<li><a href="#">Nosotras</a></li>
+							<li><a href="#">Noso_tras</a></li>
 							<li><a href="#">Staff</a></li>
 							<li><a href="#">Eventos</a></li>
 							<li><a href="#">Horario</a></li>
