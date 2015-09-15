@@ -5,7 +5,7 @@
 				<div class="container">
 					<div class="logo">
 						<a href="/">
-							<img src="/images/logo.png" width="266px" height="82px" alt="/">
+							<img src="images/logo.png" width="266px" height="82px" alt="/">
 						</a>
 					</div><a href="index.html">
 					<span class="menu"> </span>
@@ -13,13 +13,13 @@
 					</a><nav class="navigation"><a href="index.html">
 						</a><ul class="cl-effect-16"><a href="index.html">
 							</a><li><a href="/"></a><a class="active" href="/">Home</a></li>
-							<li><a href="about.html">Nosotras</a></li>
-							<li><a href="trainers.html">Staff</a></li>
-							<li><a href="404.html">Eventos</a></li>
-							<li><a href="trainers.html">Horario</a></li>
-							<li><a href="404.html">Clases</a></li>
-							<li><a href="404.html">Galeria</a></li>
-							<li><a href="blog.html">testimonios</a></li>
+							<li><a href="#">Nosotras</a></li>
+							<li><a href="#">Staff</a></li>
+							<li><a href="#">Eventos</a></li>
+							<li><a href="#">Horario</a></li>
+							<li><a href="#">Clases</a></li>
+							<li><a href="#">Galeria</a></li>
+							<li><a href="#">testimonios</a></li>
 							<li><a href="{{ url('/contact') }}">{{trans('about.contact')}}</a></li>
 						<ul>
 					</ul></ul></nav>		
