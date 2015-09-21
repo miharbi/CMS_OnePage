@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		'Illuminate\Broadcasting\BroadcastServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -145,6 +146,12 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'Collective\Html\HtmlServiceProvider',
+
+		/*
+		 * Vendor providers
+		 */
+		
+		'Intervention\Image\ImageServiceProvider',
 
 	],
 
@@ -195,6 +202,12 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'      => 'Collective\Html\FormFacade',
       	'Html'      => 'Collective\Html\HtmlFacade',
+
+      	/*
+      	 * Vendor Alies
+      	 */
+      	
+      	'Image'		=> 'Intervention\Image\Facades\Image',
 
 	],
 
