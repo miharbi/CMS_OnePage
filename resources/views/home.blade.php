@@ -5,4 +5,5 @@
 		@include('partial.us')
 		@include('partial.courses')
 		@include('partial.reviews')
+		@include('partial.staff')
 @endsection
