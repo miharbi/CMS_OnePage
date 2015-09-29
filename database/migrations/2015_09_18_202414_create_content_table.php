@@ -17,7 +17,7 @@ class CreateContentTable extends Migration {
             $table->string('title');
             $table->longText('content');
             $table->string('image');
-            $table->enum('type', ['course', 'review', 'us', 'new', 'blog', 'slider', 'staf']);
+            $table->enum('type', ['course', 'review', 'us', 'new', 'blog', 'slider', 'staff']);
             $table->timestamps();
         });
 	}

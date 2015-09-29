@@ -8,7 +8,7 @@
 					   <p>Es una disciplina fitness enfocada por una parte en mantener un cuerpo saludable y por otra en desarrollar, fortalecer y dar flexibilidad al cuerpo mediante movimientos de baile combinados con una serie de rutinas aeróbicas. La zumba utiliza dentro de sus rutinas los principales ritmos latinoamericanos, como lo son la salsa, el merengue, la cumbia, el reggaetón y la samba. En cada sesión de Zumba, se pueden llegar a quemar 1500 calorías.</p>
 				   </div>
 					<div class="col-md-6 welcome-img">
-					 <a href="single.html" class="mask"><img src="images/n1.jpg" alt="image" class="img-responsive zoom-img"></a>
+					 <a href="single.html" class="mask"><img src="images/courses/n1.jpg" alt="image" class="img-responsive zoom-img"></a>
 					</div>
 				   <div class="clearfix"> </div>
 			   </div>
@@ -21,7 +21,7 @@ Las clases de Zumba® Kids ofrecen rutinas pensadas para niños sobre la base de
 </p>
 				   </div>
 					<div class="col-md-6 new-img two">
-					 <a href="single.html" class="mask"><img src="images/n3.jpg" alt="image" class="img-responsive zoom-img"></a>
+					 <a href="single.html" class="mask"><img src="images/courses/n3.jpg" alt="image" class="img-responsive zoom-img"></a>
 					</div>
 				   <div class="clearfix"> </div>
 			   </div> 
@@ -34,7 +34,7 @@ Fortalece tus músculos y aumenta tu capacidad aeróbica combinando los movimien
 </p>
 				   </div>
 					<div class="col-md-6 welcome-img">
-					 <a href="single.html" class="mask"><img src="images/n2.jpg" alt="image" class="img-responsive zoom-img"></a>
+					 <a href="single.html" class="mask"><img src="images/courses/n2.jpg" alt="image" class="img-responsive zoom-img"></a>
 					</div>
 				   <div class="clearfix"> </div>
 			   </div>

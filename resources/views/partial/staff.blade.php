@@ -11,28 +11,28 @@
 					                <div class="item">
 					                	<div class="item-grid">
 					                		<div class="item-pic">
-					                			<img src="images/t1.jpg" />
+					                			<img src="images/staff/t1.jpg" />
 					                		</div>
 					                	</div>
 					                </div>
 					                <div class="item">
 					                	<div class="item-grid">
 					                		<div class="item-pic">
-					                			<img src="images/t2.jpg" />
+					                			<img src="images/staff/t2.jpg" />
                                                </div>
 					                		</div>
 					                </div>
 					                 <div class="item">
 					                	<div class="item-grid">
 					                		<div class="item-pic">
-					                			<img src="images/t3.jpg" />
+					                			<img src="images/staff/t3.jpg" />
                                                </div>
 					                		</div>
 					                	</div>
 					               <div class="item">
 					                	<div class="item-grid">
 					                		<div class="item-pic">
-					                			<img src="images/t4.jpg" />
+					                			<img src="images/staff/t4.jpg" />
                                                </div>
 					                		</div>
 					                	</div>

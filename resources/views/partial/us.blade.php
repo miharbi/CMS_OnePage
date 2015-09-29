@@ -15,20 +15,20 @@
 		<div class="container">
 			<div class="trainee-grids">
 				<div class="col-md-4 trainee-grid wow zoomInLeft animated">
-					  <a href="single.html"><img src="images/b1.jpg" class="img-responsive" alt="" /></a>
+					  <a href="single.html"><img src="/images/us/b1.jpg" class="img-responsive" alt="" /></a>
 						 
 					  <a href="single.html"><h1><center>Karin diaz</center></h1></a><h4> Gerente de operaciones y Community Manager</h4></a>
 					
 				</div>
 				<div class="col-md-4 trainee-grid wow fadeInUpBig animated animated" data-wow-delay="0.4s">
-					  <a href="single.html"><img src="images/b2.jpg" class="img-responsive" alt="" /></a>
+					  <a href="single.html"><img src="images/us/b2.jpg" class="img-responsive" alt="" /></a>
 						
 					  <a href="single.html"><h1><center>Carolina Ovalle</center></h1></a><h4> Gerente Comercial</h4></a>
 					 <h4></h4>
 					 <h4></h4>
 				</div>
 				<div class="col-md-4 trainee-grid wow zoomInRight animated">
-					 <a href="single.html"><img src="images/b3.jpg" class="img-responsive" alt="" /></a>
+					 <a href="single.html"><img src="images/us/b3.jpg" class="img-responsive" alt="" /></a>
 						 
 					 <a href="single.html"><h1><center>Fernanda Landaeta</center></h1></a><h4> Directora Ejecutiva</h4></a>
 					 <h4></h4>

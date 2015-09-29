@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('cms', 'CmsController@index');
+Route::resource('cms', 'ContentsController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

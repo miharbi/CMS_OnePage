@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php 
+namespace App\Http\Controllers;
+use App\Content;
 
 class HomeController extends Controller {
 
@@ -30,7 +32,33 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$edit = true;
+        $sliders = Content::where('type', 'slider')
+                            ->orderBy('updated_at', 'desc')
+                            ->take(5)
+                            ->get();
+
+        $courses = Content::where('type', 'course')
+                            ->orderBy('updated_at', 'desc')
+                            ->take(4)
+                            ->get();   
+
+        $reviews = Content::where('type', 'review')
+                            ->orderBy('updated_at', 'desc')
+                            ->take(3)
+                            ->get(); 
+
+        $us = Content::where('type', 'us')
+                            ->orderBy('updated_at', 'desc')
+                            ->take(3)
+                            ->get();  
+
+        $staff = Content::where('type', 'staff')
+                            ->orderBy('updated_at', 'desc')
+                            ->take(3)
+                            ->get();                        
+                                               
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff') );
 	}
 
 }
