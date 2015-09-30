@@ -5,7 +5,7 @@
 				<div class="container">
 					<div class="logo">
 						<a href="{{ url('/') }}">
-							<img src="{{ asset('images/logo.png') }}" width="266px" height="82px" alt="/">
+							<img src="{{ asset('images/logo.png') }}" width="218px" height="82px" alt="/">
 						</a>
 					</div><a href="index.html">
 					<span class="menu"> </span>
