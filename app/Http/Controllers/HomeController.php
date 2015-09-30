@@ -32,7 +32,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$edit = true;
+		$edit = false;
         $sliders = Content::where('type', 'slider')
                             ->orderBy('updated_at', 'desc')
                             ->take(5)
@@ -50,15 +50,23 @@ class HomeController extends Controller {
 
         $us = Content::where('type', 'us')
                             ->orderBy('updated_at', 'desc')
+                            ->first();
+
+        $mision = Content::where('type', 'mision')
+                            ->orderBy('updated_at', 'desc')
+                            ->first(); 
+
+        $owners = Content::where('type', 'owners')
+                            ->orderBy('updated_at', 'desc')
                             ->take(3)
-                            ->get();  
+                            ->get();                     
 
         $staff = Content::where('type', 'staff')
                             ->orderBy('updated_at', 'desc')
                             ->take(3)
                             ->get();                        
                                                
-        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff') );
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners') );
 	}
 
 }

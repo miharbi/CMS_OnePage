@@ -1,11 +1,6 @@
 <div class="slider">
 	 <div id="cbp-fwslider" class="cbp-fwslider">
 		<ul style="width: 500%; transition: transform 500ms ease;">
-			<li style="width: 20%;"><img src="images/slider/slide2.png" alt="img01"></li>
-			<li style="width: 20%;"><img src="images/slider/slide3.png" alt="img02"></li>
-			<li style="width: 20%;"><img src="images/slider/slide4.png" alt="img03"></li>
-			<li style="width: 20%;"><img src="images/slider/slide5.png" alt="img04"></li>
-			<li style="width: 20%;"><img src="images/slider/slide6.png" alt="img05"></li>
 			@foreach($sliders as $slider)
 				<li style="width: 20%;">
 						@if($edit)
@@ -27,15 +22,17 @@
 	<script>
 			$( function() {
 				$( '#cbp-fwslider' ).cbpFWSlider();
-				// setInterval( function(){
-    //                 if($('.cbp-fwnext').is(":visible"))
-    //                     {
-    //                         $('.cbp-fwnext').click();   
-		  //               }
-	   //              else{
-	   //                      $('.cbp-fwdots').find('span').click();
-	   //                  }
-		  //       } ,3000 );
+			@if(!$edit)	
+				setInterval( function(){
+                    if($('.cbp-fwnext').is(":visible"))
+                        {
+                            $('.cbp-fwnext').click();   
+		                }
+	                else{
+	                        $('.cbp-fwdots').find('span').click();
+	                    }
+		        } ,3000 );
+		    @endif    
 			} );
 	</script>
 @stop
