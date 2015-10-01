@@ -17,7 +17,7 @@
 		</ul>
 	<nav><span class="cbp-fwprev" style="display: none;"></span><span class="cbp-fwnext"></span></nav><div class="cbp-fwdots"><span class="cbp-fwcurrent"></span><span></span><span></span><span></span><span></span></div></div>
 </div>
-@section('script')
+
 	<script src="{{ asset('js/jquery.cbpFWSlider.min.js') }}"></script>
 	<script>
 			$( function() {
@@ -35,4 +35,3 @@
 		    @endif    
 			} );
 	</script>
-@stop

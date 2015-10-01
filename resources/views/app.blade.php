@@ -10,18 +10,7 @@
 	<link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
-	<!-- Fonts -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Orbitron:400,500,700,900" rel="stylesheet" type="text/css">
-
-</head>
-<body >
-	
-	@include('partial.navTop')
-
-	@yield('content')
-
-	@include('partial.navFooter')
-	<!-- Scripts -->
+		<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -38,7 +27,17 @@
 		new WOW().init();
 	</script>
 
-	@section('script') @show
+	<!-- Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Orbitron:400,500,700,900" rel="stylesheet" type="text/css">
+
+</head>
+<body >
+	
+	@include('partial.navTop')
+
+	@yield('content')
+
+	@include('partial.navFooter')
 
 </body>
 </html>

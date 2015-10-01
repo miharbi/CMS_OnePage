@@ -30,8 +30,7 @@
 			 </div>
 		</div>
 </div>
-@section('script')
-<!-- script for menu -->
+
 <script>
 	$( "span.menu" ).click(function() {
 	  $( ".top-menu" ).slideToggle( "slow", function() {
@@ -52,4 +51,3 @@
 		 
 	});
 </script>
-@stop
