@@ -1,7 +1,7 @@
 	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;">
 		<div class="container">
 		    <h2>{!! $mision->title !!}</h2>
-			{!! $mision->content !!}
+			<p>{!! $mision->content !!}</p>
 		 </div>
 	</div>
 	

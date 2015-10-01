@@ -4,9 +4,15 @@
 			@foreach($sliders as $slider)
 				<li style="width: 20%;">
 						@if($edit)
-							<form action="">
-								<input type="file" id="selectedFile" style="display: none;" />
-								<a href="javascript:void(0);" onclick="$('#selectedFile').click();" class="pull-right"> <h3><span class="glyphicon glyphicon-edit"></span></h3></a>
+							{!! Form::open(array('url' => 'cms/'.$slider->id, 'method' => 'put', 'files' => true)) !!}
+								<input name="image" type="file" id="selectedFile_{{ $slider->id }}" style="display: none;" onchange="this.form.submit()" />
+								<a href="javascript:void(0);" onclick="$('#selectedFile_{{ $slider->id }}').click();" class="pull-right"> 
+									<h3><span class="glyphicon glyphicon-edit"></span></h3>
+								</a>
+								<input type="hidden" name="path" value="slider">
+								<input type="hidden" name="width" value="1345">
+								<input type="hidden" name="height" value="450">
+								<input type="hidden" name="old" value="{{ $slider->image }}">
 							</form>
 						@endif
 					

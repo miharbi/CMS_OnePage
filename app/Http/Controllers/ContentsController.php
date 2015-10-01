@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 use App\Content;
 
 class ContentsController extends Controller
@@ -30,7 +30,7 @@ class ContentsController extends Controller
         
         $edit = true;
         $sliders = Content::where('type', 'slider')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(5)
                             ->get();
 
@@ -117,7 +117,42 @@ class ContentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'image' => 'image'
+        ]);
+
+       if ($request->file('image')->isValid()) {
+            $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
+            $path   = public_path().'/images/'.$request->input('path').'/'.$imageName;
+            $image  = 'images/'.$request->input('path').'/'.$imageName;
+            $width  = $request->input('width');
+            $height = $request->input('height');
+            
+            Image::make($request->file('image'))
+                   ->fit($width, $height, function ($constraint) { $constraint->upsize(); })
+                   ->save($path);
+
+            @unlink(public_path().'/'.$request->input('old'));
+
+            $data = ['image'   => $image];
+
+        }elseif($request->input('title') || $request->input('content')){
+
+            $data = [
+                'title'   => $request->input('title'),
+                'content' => $request->input('content')
+            ];
+
+        }else{
+
+            return;
+
+        }
+
+        $content = Content::find($id);
+        $content->update($data);
+
+        return redirect()->to('cms');
     }
 
     /**
@@ -130,4 +165,5 @@ class ContentsController extends Controller
     {
         //
     }
+
 }
