@@ -33,10 +33,10 @@ class RedirectIfAuthenticated {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->check())
-		{
-			return new RedirectResponse(url('/cms'));
-		}
+		// if ($this->auth->check())
+		// {
+		// 	return new RedirectResponse(url('/cms'));
+		// }
 
 		return $next($request);
 	}

@@ -50,4 +50,18 @@ class AuthController extends Controller {
         return Validator::make($data, $validate);
     }
 
+    /**
+     * Log the user out of the application.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogout()
+    {
+        \Session::flush();
+
+        \Auth::logout();
+
+        return redirect('/');
+    }
+
 }

@@ -34,39 +34,40 @@ class HomeController extends Controller {
 	{
 		$edit = false;
         $sliders = Content::where('type', 'slider')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(5)
                             ->get();
 
         $courses = Content::where('type', 'course')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(4)
                             ->get();   
 
         $reviews = Content::where('type', 'review')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderByRaw("RAND()")
                             ->take(3)
                             ->get(); 
 
-        $us = Content::where('type', 'us')
-                            ->orderBy('updated_at', 'desc')
-                            ->first();
+        $us = Content::where('type', 'us')->first();
 
-        $mision = Content::where('type', 'mision')
-                            ->orderBy('updated_at', 'desc')
-                            ->first(); 
+        $mision = Content::where('type', 'mision')->first(); 
 
         $owners = Content::where('type', 'owners')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(3)
                             ->get();                     
 
         $staff = Content::where('type', 'staff')
+                            ->orderBy('id')
+                            ->take(10)
+                            ->get();
+
+        $events = Content::where('type', 'event')
                             ->orderBy('updated_at', 'desc')
-                            ->take(5)
-                            ->get();                        
+                            ->take(10)
+                            ->get();                                           
                                                
-        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners') );
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events') );
 	}
 
 }

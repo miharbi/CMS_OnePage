@@ -54,11 +54,16 @@ class ContentsController extends Controller
                             ->get();                     
 
         $staff = Content::where('type', 'staff')
+                            ->orderBy('id')
+                            ->take(10)
+                            ->get();
+
+        $events = Content::where('type', 'event')
                             ->orderBy('updated_at', 'desc')
-                            ->take(5)
-                            ->get();                        
+                            ->take(10)
+                            ->get();                                           
                                                
-        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners') );
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events') );
     }
 
     /**
@@ -120,7 +125,7 @@ class ContentsController extends Controller
        if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
             $path   = public_path().'/images/'.$request->input('path').'/'.$imageName;
-            $image  = 'images/'.$request->input('path').'/'.$imageName;
+            $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
             

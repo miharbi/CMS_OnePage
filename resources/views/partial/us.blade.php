@@ -31,9 +31,11 @@
 					@if($edit)
 							{!! Form::open(array('url' => 'cms/'.$owner->id, 'method' => 'put', 'files' => true)) !!}
 								<input name="image" type="file" id="selectedFile_{{ $owner->id }}" style="display: none;" onchange="this.form.submit()" />
-								<a href="javascript:void(0);" onclick="$('#selectedFile_{{ $owner->id }}').click();" class="pull-right"> 
-									<h3><span class="glyphicon glyphicon-edit"></span></h3>
-								</a>
+								<h3 style="cursor: pointer;"
+									onclick="$('#selectedFile_{{ $owner->id }}').click();"
+									class="pull-right">
+									<span class="glyphicon glyphicon-edit"></span>
+								</h3>
 								<input type="hidden" name="path" value="us">
 								<input type="hidden" name="width" value="300">
 								<input type="hidden" name="height" value="300">

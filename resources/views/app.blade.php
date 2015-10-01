@@ -24,8 +24,8 @@
 	<script src="{{ asset('js/wow.min.js') }}"></script>
 
 	<script>
-		new WOW().init();
-		@if($edit)
+		
+		@if(isset($edit) && $edit)
 		function saveContent(id){
 			$('.save_'+id).addClass('hide');
 			var title = $('#title_'+id).html();
@@ -45,8 +45,11 @@
 			  	}
 			  }
 			});
-		}	
+		}
+		@else
+			new WOW().init();
 		@endif
+		
 	</script>
 
 	<!-- Fonts -->

@@ -30,7 +30,7 @@ CREATE TABLE `contents` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `type` enum('course','review','us','owners','mision','new','blog','slider','staff') COLLATE utf8_unicode_ci NOT NULL,
+  `type` enum('course','review','us','owners','mision','new','blog','slider','staff','event') COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)

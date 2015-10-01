@@ -6,4 +6,5 @@
 		@include('partial.courses')
 		@include('partial.reviews')
 		@include('partial.staff')
+		@include('partial.events')
 @endsection
