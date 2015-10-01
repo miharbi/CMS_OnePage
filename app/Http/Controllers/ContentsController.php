@@ -59,7 +59,7 @@ class ContentsController extends Controller
 
         $staff = Content::where('type', 'staff')
                             ->orderBy('updated_at', 'desc')
-                            ->take(3)
+                            ->take(5)
                             ->get();                        
                                                
         return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners') );

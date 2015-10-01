@@ -1872,3 +1872,11 @@ ul.address li a {
 	  font-size: 0.8em;
 	}
 }
+    .owl-staff .item{
+      margin: 0px;
+    }
+    .owl-staff .item img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
