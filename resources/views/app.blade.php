@@ -25,6 +25,28 @@
 
 	<script>
 		new WOW().init();
+		@if($edit)
+		function saveContent(id){
+			$('.save_'+id).addClass('hide');
+			var title = $('#title_'+id).html();
+			var content = $('#content_'+id).html();
+			$.ajax({
+			  url: 'cms/'+id,
+			  type: 'PUT',
+			  data: {title : title, content : content, _token : '{{ csrf_token() }}'},
+			  success: function(data) {
+			  	if (data == 'ok') {
+					$('.saved_'+id).removeClass('hide');
+					setTimeout(function () {
+						$('.saved_'+id).addClass('hide');
+					}, 2000);
+			  	}else{
+			  		alert('Ocurrio un error, intente de nuevo.');
+			  	}
+			  }
+			});
+		}	
+		@endif
 	</script>
 
 	<!-- Fonts -->

@@ -35,25 +35,21 @@ class ContentsController extends Controller
                             ->get();
 
         $courses = Content::where('type', 'course')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(4)
                             ->get();   
 
         $reviews = Content::where('type', 'review')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderByRaw("RAND()")
                             ->take(3)
                             ->get(); 
 
-        $us = Content::where('type', 'us')
-                            ->orderBy('updated_at', 'desc')
-                            ->first();
+        $us = Content::where('type', 'us')->first();
 
-        $mision = Content::where('type', 'mision')
-                            ->orderBy('updated_at', 'desc')
-                            ->first(); 
+        $mision = Content::where('type', 'mision')->first(); 
 
         $owners = Content::where('type', 'owners')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(3)
                             ->get();                     
 
@@ -121,7 +117,7 @@ class ContentsController extends Controller
             'image' => 'image'
         ]);
 
-       if ($request->file('image')->isValid()) {
+       if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
             $path   = public_path().'/images/'.$request->input('path').'/'.$imageName;
             $image  = 'images/'.$request->input('path').'/'.$imageName;
@@ -139,18 +135,21 @@ class ContentsController extends Controller
         }elseif($request->input('title') || $request->input('content')){
 
             $data = [
-                'title'   => $request->input('title'),
-                'content' => $request->input('content')
+                'title'   => trim($request->input('title')),
+                'content' => trim($request->input('content'))
             ];
 
         }else{
 
-            return;
+            return 'error';
 
         }
 
         $content = Content::find($id);
         $content->update($data);
+        if ($request->ajax()){
+            return 'ok';
+        }
 
         return redirect()->to('cms');
     }
