@@ -26,7 +26,7 @@ class ContentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  //['new', 'blog', '']
+    { 
         
         $edit = true;
         $sliders = Content::where('type', 'slider')
@@ -59,11 +59,16 @@ class ContentsController extends Controller
                             ->get();
 
         $events = Content::where('type', 'event')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(10)
-                            ->get();                                           
+                            ->get(); 
+
+        $schedules = Content::where('type', 'schedule')
+                            ->orderBy('id')
+                            ->take(10)
+                            ->get();                                      
                                                
-        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events') );
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events', 'schedules') );
     }
 
     /**
@@ -124,7 +129,7 @@ class ContentsController extends Controller
 
        if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
-            $path   = public_path().'/images/'.$request->input('path').'/'.$imageName;
+            $path   = '../public_html/images/'.$request->input('path').'/'.$imageName;
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
@@ -133,15 +138,15 @@ class ContentsController extends Controller
                    ->fit($width, $height, function ($constraint) { $constraint->upsize(); })
                    ->save($path);
 
-            @unlink(public_path().'/'.$request->input('old'));
+            @unlink('/'.$request->input('old'));
 
             $data = ['image'   => $image];
 
         }elseif($request->input('title') || $request->input('content')){
 
             $data = [
-                'title'   => trim($request->input('title')),
-                'content' => trim($request->input('content'))
+                'title'   => trim(strip_tags ($request->input('title'))),
+                'content' => trim(strip_tags ($request->input('content')))
             ];
 
         }else{

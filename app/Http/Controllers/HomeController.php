@@ -63,11 +63,16 @@ class HomeController extends Controller {
                             ->get();
 
         $events = Content::where('type', 'event')
-                            ->orderBy('updated_at', 'desc')
+                            ->orderBy('id')
                             ->take(10)
-                            ->get();                                           
+                            ->get(); 
+
+        $schedules = Content::where('type', 'schedule')
+                            ->orderBy('id')
+                            ->take(10)
+                            ->get();                                      
                                                
-        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events') );
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events', 'schedules') );
 	}
 
 }
