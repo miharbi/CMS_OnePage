@@ -1,4 +1,4 @@
-	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;">
+	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;" id="us">
 		<div class="container">
 			@if($edit)
 				<h4 style="cursor: pointer;">

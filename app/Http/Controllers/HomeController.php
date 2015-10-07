@@ -25,6 +25,17 @@ class HomeController extends Controller {
 		$this->middleware('guest');
 	}
 
+	public function gallery()
+	{
+		$edit = false;
+        $gallery = Content::where('type', 'gallery')
+                            ->orderBy('id')
+                            ->paginate(20);
+
+        return view('partial.gallery', compact('gallery', 'edit') );
+	                    
+	}
+
 	/**
 	 * Show the application welcome screen to the user.
 	 *

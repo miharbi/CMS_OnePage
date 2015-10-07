@@ -10,7 +10,7 @@ use App\Content;
 
 class ContentsController extends Controller
 {
-   /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -26,8 +26,7 @@ class ContentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        
+    {
         $edit = true;
         $sliders = Content::where('type', 'slider')
                             ->orderBy('id')
@@ -37,21 +36,21 @@ class ContentsController extends Controller
         $courses = Content::where('type', 'course')
                             ->orderBy('id')
                             ->take(4)
-                            ->get();   
+                            ->get();
 
         $reviews = Content::where('type', 'review')
                             ->orderByRaw("RAND()")
                             ->take(3)
-                            ->get(); 
+                            ->get();
 
         $us = Content::where('type', 'us')->first();
 
-        $mision = Content::where('type', 'mision')->first(); 
+        $mision = Content::where('type', 'mision')->first();
 
         $owners = Content::where('type', 'owners')
                             ->orderBy('id')
                             ->take(3)
-                            ->get();                     
+                            ->get();
 
         $staff = Content::where('type', 'staff')
                             ->orderBy('id')
@@ -61,14 +60,14 @@ class ContentsController extends Controller
         $events = Content::where('type', 'event')
                             ->orderBy('id')
                             ->take(10)
-                            ->get(); 
+                            ->get();
 
         $schedules = Content::where('type', 'schedule')
                             ->orderBy('id')
                             ->take(10)
-                            ->get();                                      
+                            ->get();
                                                
-        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events', 'schedules') );
+        return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events', 'schedules'));
     }
 
     /**
@@ -89,7 +88,42 @@ class ContentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'image' => 'image'
+        ]);
+
+        $id = Content::insertGetId([]);
+
+        if ($request->file('image') && $request->file('image')->isValid()) {
+            $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
+            $path   = '../public_html/images/'.$request->input('path').'/';
+            //$path   = public_path().'/images/'.$request->input('path').'/';
+            $image  = '/images/'.$request->input('path').'/'.$imageName;
+            $width  = $request->input('width');
+            $height = $request->input('height');
+            
+            Image::make($request->file('image'))
+                   ->fit($width, $height, function ($constraint) { $constraint->upsize(); })
+                   ->save($path.$imageName);
+
+            if ($request->input('path') == 'gallery') { // thumbnail
+                $imageNameThumbnail = 'thumbnail_'.$id.'_'.$request->file('image')->getClientOriginalName();
+                Image::make($request->file('image'))
+                   ->fit('200', '200', function ($constraint) { $constraint->upsize(); })
+                   ->save($path.$imageNameThumbnail);   
+            }
+
+            $data = ['image'   => $image, 'type' => 'gallery'];
+        }else{
+            return redirect()->to('cmsgallery');
+        }
+        $content = Content::find($id);
+        $content->update($data);
+
+        if ($request->input('path') == 'gallery' ) {
+            return redirect()->to('cmsgallery');
+        }
+        return redirect()->to('cms');
     }
 
     /**
@@ -127,41 +161,57 @@ class ContentsController extends Controller
             'image' => 'image'
         ]);
 
-       if ($request->file('image') && $request->file('image')->isValid()) {
+        if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
-            $path   = '../public_html/images/'.$request->input('path').'/'.$imageName;
+            $path   = '../public_html/images/'.$request->input('path').'/'; //production
+            //$path   = public_path().'/images/'.$request->input('path').'/';
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
             
             Image::make($request->file('image'))
                    ->fit($width, $height, function ($constraint) { $constraint->upsize(); })
-                   ->save($path);
+                   ->save($path.$imageName);
+
+            if ($request->input('path') == 'gallery') { // thumbnail
+                $imageNameThumbnail = 'thumbnail_'.$id.'_'.$request->file('image')->getClientOriginalName();
+                Image::make($request->file('image'))
+                   ->fit('200', '200', function ($constraint) { $constraint->upsize(); })
+                   ->save($path.$imageNameThumbnail);   
+            }       
+
 
             @unlink('/'.$request->input('old'));
 
             $data = ['image'   => $image];
-
-        }elseif($request->input('title') || $request->input('content')){
-
+        } elseif ($request->input('title') || $request->input('content')) {
             $data = [
-                'title'   => trim(strip_tags ($request->input('title'))),
-                'content' => trim(strip_tags ($request->input('content')))
+                'title'   => trim(strip_tags($request->input('title'))),
+                'content' => trim(strip_tags($request->input('content')))
             ];
-
-        }else{
-
+        } else {
             return 'error';
-
         }
 
         $content = Content::find($id);
         $content->update($data);
-        if ($request->ajax()){
+        if ($request->ajax()) {
             return 'ok';
         }
-
+        if ($request->input('path') == 'gallery' ) {
+            return redirect()->to('cmsgallery');
+        }
         return redirect()->to('cms');
+    }
+
+    public function gallery()
+    {
+        $edit = true;
+        $gallery = Content::where('type', 'gallery')
+                            ->orderBy('id')
+                            ->paginate(20);
+
+        return view('partial.gallery', compact('gallery', 'edit'));
     }
 
     /**
@@ -174,5 +224,4 @@ class ContentsController extends Controller
     {
         //
     }
-
 }

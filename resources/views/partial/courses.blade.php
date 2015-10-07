@@ -1,4 +1,4 @@
-<div class="new-section">
+<div class="new-section" id="courses">
 	<div class="container">
 	<h3>Nuestras Clases</h3>
 	<?php $cont=0; ?>

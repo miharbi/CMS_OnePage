@@ -1,4 +1,4 @@
-<div class="tainers-section">
+<div class="tainers-section" id="staff">
 	<div class="container">
 		<!--sreen-gallery-cursual-->
 		<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">

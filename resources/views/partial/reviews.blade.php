@@ -1,4 +1,4 @@
-<div class="new-section">
+<div class="new-section" id="reviews">
 	<div class="container">
 	<h3>Testimonios</h3>
 	<?php $cont=1; ?>
