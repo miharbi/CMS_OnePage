@@ -23,6 +23,7 @@ class HomeController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('guest');
+        //\Artisan::call('route:cache');
 	}
 
 	public function gallery()

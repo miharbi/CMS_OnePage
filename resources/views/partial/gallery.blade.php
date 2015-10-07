@@ -82,7 +82,7 @@
 				    </a>
 				</div>
 			@endforeach
-   
+   			{!! $gallery->render() !!}
 		</div>
 	</div>
 
