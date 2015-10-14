@@ -197,7 +197,7 @@ nav.navigation a:focus {
     font-family: 'Open Sans', sans-serif;
 }
 .date lable,h3.date span{
-  color: #EEEEEE;
+  color: #fff;
    font-size: 2em;
   font-weight: 600;
     font-family: 'Open Sans', sans-serif;
@@ -210,7 +210,7 @@ nav.navigation a:focus {
 .trainee-grid h4 ,.trainee-grid a h5{
   color: #fff;
   text-align: center;
-  background-color: #FF9933;
+  background-color: #EEEEEE;
   font-size: 1em;
   text-transform: uppercase;
   padding: 0.4em;
