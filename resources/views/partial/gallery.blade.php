@@ -2,9 +2,8 @@
 @section('title')@parent - {{ trans('home.gallery') }} @stop
 @section('content')
 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-<link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+<link rel="stylesheet" href="{{ asset('css/bootstrap-image-gallery.min.css') }}">
 
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery">
@@ -59,7 +58,7 @@
 			Galería</h2>
 		<div id="links">
 			@foreach($gallery as $pic)
-				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+				<div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb">
 					@if($edit)
 						{!! Form::open(array('url' => 'cms/'.$pic->id, 'method' => 'put', 'files' => true)) !!}
 							<input name="image" type="file" id="selectedFile_{{ $pic->id }}" style="display: none;" onchange="this.form.submit()" />
@@ -92,9 +91,6 @@
 
 {{--  --}}
 
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-<script src="js/bootstrap-image-gallery.min.js"></script>
+<script src="{{ asset('js/bootstrap-image-gallery.min.js' ) }}"></script>
 @endsection

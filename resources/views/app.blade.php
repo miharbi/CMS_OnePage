@@ -49,21 +49,35 @@
 		@else
 			new WOW().init();
 		@endif
+		$(document).ready(function() {
+		 var navoffeset=$(".header-bottom").offset().top;
+		 $(window).scroll(function(){
+			var scrollpos=$(window).scrollTop(); 
+			if(scrollpos >=navoffeset){
+				$(".header-bottom").addClass("fixed");
+			}else{
+				$(".header-bottom").removeClass("fixed");
+			}
+		 });
 
-		$(document).ready(function(){
-			$("a[href*=#]").on('click',function (e) {
-			    e.preventDefault();
-
+		 $("a[href*=#]").on('click',function (e) {
 			    var target = this.hash;
 			    var $target = $(target);
-
+			    if ($target.offset() !== undefined ) { alert($target.offset());
+			    	e.preventDefault();
+			    }else{
+			    	return ;
+			    }
+			    $(".navbar-nav li a").removeClass("active");
+			    $(this).addClass("active");
 			    $('html, body').stop().animate({
-			        'scrollTop': $target.offset().top
+			        'scrollTop': $target.offset().top-80
 			    }, 900, 'swing', function () {
 			        window.location.hash = target;
 			    });
 			});
-		});
+		 
+	});
 		
 	</script>
 
@@ -71,7 +85,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans|Orbitron:500' rel='stylesheet' type='text/css'>
 
 </head>
-<body >
+<body style="padding-top: 80px;">
 	
 	@include('partial.navTop')
 

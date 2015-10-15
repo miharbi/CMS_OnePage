@@ -12,55 +12,49 @@
 	  </div>
 	</nav>
 @endif
-<div class="banner" id="home">
-	<div class="header-bottom fixed">
-	 <div class="fixed-header">
-		<div class="container">
-			<div class="logo">
-				<a href="{{ url('/') }}">
-					<img src="{{ asset('images/logo.png') }}" width="218px" height="82px" alt="/">
-				</a>
-			</div><a href="index.html">
-			<span class="menu"> </span>
-			</a><div class="top-menu"><a href="{{ url('/') }}">
-			</a><nav class="navigation"><a href="{{ url('/') }}">
-				</a><ul class="cl-effect-16"><a href="{{ url('/') }}">
-					</a><li><a href="{{ url('/') }}"></a><a class="active" href="{{ url('/') }}">Home</a></li>
-					<li><a href="{{ url('/') }}#us">Nosotras</a></li>
-					<li><a href="{{ url('/') }}#staff">Staff</a></li>
-					<li><a href="{{ url('/') }}#events">Eventos</a></li>
-					<li><a href="{{ url('/') }}#schedules">Horarios</a></li>
-					<li><a href="{{ url('/') }}#courses">Clases</a></li>
-					<li><a href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif">Galeria</a></li>
-					<li><a href="{{ url('/') }}#reviews">Testimonios</a></li>
-					<li><a href="{{ url('/contact') }}">{{trans('about.contact')}}</a></li>
-				<ul>
-			</ul></ul></nav>		
-			</div>
-		
-			<div class="clearfix"></div>
-		</div>
-	 </div>
-	</div>
+
+<nav class="navbar navbar-default banner top-menu navbar-fixed-top">
+  <div class="container-fluid header-bottom ">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="{{ url('/') }}">
+		<img src="{{ asset('images/logo.png') }}" width="218px" height="82px" alt="/">
+	  </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navigation" id="bs-example-navbar-collapse-1">
+		<ul class="cl-effect-16 nav navbar-nav navbar-right" style="margin-top: 2.5em;">
+			<li><a class="active" href="{{ url('/') }}">Home</a></li>
+			<li><a href="{{ url('/') }}#us">Nosotras</a></li>
+			<li><a href="{{ url('/') }}#staff">Staff</a></li>
+			<li><a href="{{ url('/') }}#events">Eventos</a></li>
+			<li><a href="{{ url('/') }}#schedules">Horarios</a></li>
+			<li><a href="{{ url('/') }}#courses">Clases</a></li>
+			<li><a href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif">Galeria</a></li>
+			<li><a href="{{ url('/') }}#reviews">Testimonios</a></li>
+			<li><a href="{{ url('/contact') }}">{{trans('about.contact')}}</a></li>
+		</ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="social_box">
+	<ul class="list-inline">
+		<li><a href="{{ env('FACEBOOK') }}" target="_blank"> 
+    		<img style="width: 4.5em;" src="{{ asset('images/facebook.svg') }}" alt="FACEBOOK">
+    	</a></li>
+		<li><a href="{{ env('TWITTER') }}" target="_blank"> 
+    		<img style="width: 4.5em;" src="{{ asset('images/twitter.svg') }}" alt="TWITTER">
+    	</a></li>
+		<li><a href="{{ env('INSTAGRAM') }}" target="_blank"> 
+    		<img style="width: 4.5em;" src="{{ asset('images/instagram.svg') }}" alt="INSTAGRAM">
+    	</a></li>
+	</ul>
 </div>
-
-<script>
-	$( "span.menu" ).click(function() {
-	  $( ".top-menu" ).slideToggle( "slow", function() {
-		// Animation complete.
-	  });
-	});
-
-	$(document).ready(function() {
-		 var navoffeset=$(".header-bottom").offset().top;
-		 $(window).scroll(function(){
-			var scrollpos=$(window).scrollTop(); 
-			if(scrollpos >=navoffeset){
-				$(".header-bottom").addClass("fixed");
-			}else{
-				$(".header-bottom").removeClass("fixed");
-			}
-		 });
-		 
-	});
-</script>
