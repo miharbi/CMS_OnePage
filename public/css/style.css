@@ -198,7 +198,7 @@ nav.navigation a:focus {
   padding: 0px 0px 0px 12px;
 }
 .trainee-grid h4 ,.trainee-grid a h5{
-  color: #fff;
+  color: #EEEEEE;
   text-align: center;
   background-color: #EEEEEE;
   font-size: 1em;
@@ -252,8 +252,8 @@ nav.navigation a:focus {
 .col-md-3.tainer {
     margin: 0;
   background-color: #000;
-  min-height: 442px;
-  margin-top: 1.2em;
+     min-height: 454px;
+    margin-top: 0.2em
    padding: 2em 2em;
 }
 .tainer  h3 {
@@ -262,7 +262,7 @@ nav.navigation a:focus {
   color: #FF9933;
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
-  line-height: 0.428571;
+  line-height: 1.428571
 }
 .tainer  p {
   line-height: 1.7em;
@@ -431,6 +431,7 @@ img.zoom-img {
   margin: 0 auto;
   text-align: left;
   padding: 5em 3em 2em 3em;
+  font-size: 14px;
 }
 .new h5 {
   color:rgba(44, 47, 47, 1);
@@ -1089,7 +1090,7 @@ ul.address li a {
   margin-top:2em;
 }
 .hours{
-	float:right;
+	float:center;
 	font-size:0.8125em;
 	color:#fff;
 }
@@ -1794,7 +1795,7 @@ ul.address li a {
 	}
 }
     .owl-staff .item{
-      margin: 0px;
+      margin: 2px;
     }
     .owl-staff .item img{
       display: block;
