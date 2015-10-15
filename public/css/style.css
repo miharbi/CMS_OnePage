@@ -125,6 +125,11 @@ nav.navigation a:focus {
 		cursor: pointer;
 		margin-top: 12px;
 	}
+  .navbar-collapse.collapse {
+    
+    padding-bottom: 10px;
+    
+}
 	.header-bottom {
   		padding: 1em 0;
 	}
