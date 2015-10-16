@@ -12,12 +12,12 @@
             <div class="opening_hours">
              <ul class="times">
               <h3>Horas<span class="opening">abiertas</span></h3>
-              <li><i class="calender"> </i><span class="week">Lunes</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
-              <li><i class="calender"> </i><span class="week">Martes</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
-              <li><i class="calender"> </i><span class="week">Miercoles</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
-              <li><i class="calender"> </i><span class="week">Jueves</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
-              <li><i class="calender"> </i><span class="week">Viernes</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
-              <li><i class="calender"> </i><span class="week">Sabado</span><div class="hours">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+              <li><i class="calender"> </i><span class="week">Lunes</span><div class="hours">h.09:15-h.22:30</div>  <div class="clearfix"></div></li>
+              <li><i class="calender"> </i><span class="week">Martes</span><div class="hours">h.10:00-h.22:30</div>  <div class="clearfix"></div></li>
+              <li><i class="calender"> </i><span class="week">Miercoles</span><div class="hours">h.09:15-h.22:30</div>  <div class="clearfix"></div></li>
+              <li><i class="calender"> </i><span class="week">Jueves</span><div class="hours">h.10:00-h.22:30</div>  <div class="clearfix"></div></li>
+              <li><i class="calender"> </i><span class="week">Viernes</span><div class="hours">h.09:15-h.21:15</div>  <div class="clearfix"></div></li>
+              <li><i class="calender"> </i><span class="week">Sabado</span><div class="hours">h.11:00-h.13:30</div>  <div class="clearfix"></div></li>
               <li><i class="calender"> </i><span class="week">Domingo</span><div class="hours">Cerrado</div>  <div class="clearfix"></div></li>
   
              </ul>

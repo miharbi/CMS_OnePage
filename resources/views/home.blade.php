@@ -4,7 +4,7 @@
 		@include('partial.slider')
 		@include('partial.us')
 		@include('partial.courses')
-		@include('partial.reviews')
+		@include('partial.schedules')
 		@include('partial.staff')
 		@include('partial.events')
 		@include('partial.schedules')
