@@ -9,13 +9,13 @@
   <strong>{{ trans('about.emails') }}</strong><br>
   <small>
 	  @if(env('contact_email')!='')
-	  <a href="mailto:{{env('contact_email') }}">{{env('contact_email') }}</a>
+	  {{env('contact_email') }}
 	  @endif
 	  @if(env('sales_email')!='')
-	   / <a href="mailto:{{env('sales_email') }}">{{env('sales_email') }}</a>
+	   / {{env('sales_email') }}
 	  @endif
 	  @if(env('support_email')!='')
-	   / <a href="mailto:{{env('support_email') }}">{{env('support_email') }}</a>
+	   / {{env('support_email') }}
 	  @endif
   </small>
 </address>

@@ -18,7 +18,26 @@ body a,.grid_1,plan_1,plan_1.one,plan_1.two,i.icon1, i.icon2, i.icon3, i.icon4, 
 }
 a:hover{
  text-decoration:none;
+
+
 }
+a {
+    color: #0B4613;
+    text-decoration: none;
+
+}.btn-primary {
+    color: #ffffff;
+    background-color: #DE5B11;
+    border-color: #B53018;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    background-color: #009933; 
+    border-color: #B53018;
+    }
+
+
 input[type="button"],input[type="submit"],.port-grid ,.text p,.text h3{
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
