@@ -56,5 +56,8 @@
 		<li><a href="{{ env('INSTAGRAM') }}" target="_blank"> 
     		<img style="width: 4.5em;" src="{{ asset('images/instagram.svg') }}" alt="INSTAGRAM">
     	</a></li>
+    	<li><a href="{{ env('YOUTUBE') }}" target="_blank"> 
+    		<img style="width: 4.5em;" src="{{ asset('images/YOUTUBE.svg') }}" alt="YOUTUBE">
+    	</a></li>
 	</ul>
 </div>
