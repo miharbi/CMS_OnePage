@@ -91,13 +91,17 @@ class ContentsController extends Controller
         $this->validate($request, [
             'image' => 'image'
         ]);
-
-        $id = Content::insertGetId([]);
+        if ($request->input('dad')) {
+            $insert = ['dad'   => $request->input('dad')];
+        }else{
+            $insert = [];
+        }
+        $id = Content::insertGetId($insert);
 
         if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
             $path   = '../public_html/images/'.$request->input('path').'/';
-            //$path   = public_path().'/images/'.$request->input('path').'/';
+            $path   = public_path().'/images/'.$request->input('path').'/';
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
@@ -110,17 +114,17 @@ class ContentsController extends Controller
                 $imageNameThumbnail = 'thumbnail_'.$id.'_'.$request->file('image')->getClientOriginalName();
                 Image::make($request->file('image'))
                    ->fit('200', '200', function ($constraint) { $constraint->upsize(); })
-                   ->save($path.$imageNameThumbnail);   
+                   ->save($path.$imageNameThumbnail);
             }
 
             $data = ['image'   => $image, 'type' => 'gallery'];
-        }else{
+        } else {
             return redirect()->to('cmsgallery');
         }
         $content = Content::find($id);
         $content->update($data);
 
-        if ($request->input('path') == 'gallery' ) {
+        if ($request->input('path') == 'gallery') {
             return redirect()->to('cmsgallery');
         }
         return redirect()->to('cms');
@@ -164,7 +168,7 @@ class ContentsController extends Controller
         if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
             $path   = '../public_html/images/'.$request->input('path').'/'; //production
-            //$path   = public_path().'/images/'.$request->input('path').'/';
+            $path   = public_path().'/images/'.$request->input('path').'/';
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
@@ -177,9 +181,8 @@ class ContentsController extends Controller
                 $imageNameThumbnail = 'thumbnail_'.$id.'_'.$request->file('image')->getClientOriginalName();
                 Image::make($request->file('image'))
                    ->fit('200', '200', function ($constraint) { $constraint->upsize(); })
-                   ->save($path.$imageNameThumbnail);   
-            }       
-
+                   ->save($path.$imageNameThumbnail);
+            }
 
             @unlink('/'.$request->input('old'));
 
@@ -198,20 +201,26 @@ class ContentsController extends Controller
         if ($request->ajax()) {
             return 'ok';
         }
-        if ($request->input('path') == 'gallery' ) {
+        if ($request->input('path') == 'gallery') {
             return redirect()->to('cmsgallery');
         }
         return redirect()->to('cms');
     }
 
-    public function gallery()
+    public function gallery($id = false)
     {
         $edit = true;
-        $gallery = Content::where('type', 'gallery')
-                            ->orderBy('id')
-                            ->paginate(20);
+        $gallery = Content::where('type', 'gallery')->orderBy('id');
 
-        return view('partial.gallery', compact('gallery', 'edit'));
+        if ($id) {
+            $gallery->where('dad', $id)->orWhere('id', $id);
+        } else {
+            $gallery->whereNull('dad');
+        }
+
+        $gallery = $gallery->paginate(20);
+
+        return view('partial.gallery', compact('gallery', 'edit', 'id'));
     }
 
     /**

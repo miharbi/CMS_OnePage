@@ -13,11 +13,13 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('gallery', 'HomeController@gallery');
+Route::get('gallery/{id?}', 'HomeController@gallery');
 
 Route::resource('cms', 'ContentsController');
 
-Route::resource('cmsgallery', 'ContentsController@gallery');
+Route::get('cmsgallery/{id?}', 'ContentsController@gallery');
+
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -1,5 +1,5 @@
 @if(isset($edit) && $edit)
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" style="z-index: 2000;">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a type="button" class="btn btn-success btn-xs" href="auth/logout">
@@ -57,7 +57,7 @@
     		<img style="width: 4.5em;" src="{{ asset('images/instagram.svg') }}" alt="INSTAGRAM">
     	</a></li>
     	<li><a href="{{ env('YOUTUBE') }}" target="_blank"> 
-    		<img style="width: 4.5em;" src="{{ asset('images/YOUTUBE.svg') }}" alt="YOUTUBE">
+    		<img style="width: 4.8em;" src="{{ asset('images/YOUTUBE.svg') }}" alt="YOUTUBE">
     	</a></li>
 	</ul>
 </div>

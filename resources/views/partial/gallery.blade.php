@@ -45,18 +45,79 @@
 
 	<div class="container">
 		<h2>@if($edit)
-				{!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true)) !!}
-					<input name="image" type="file" id="new_pic" style="display: none;" onchange="this.form.submit()" />
-					<span style="cursor: pointer;" 
-						  onclick="$('#new_pic').click();" 
-						  class="glyphicon glyphicon-plus pull-right"></span>
+				@if($id)
+					{!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true)) !!}
+						<input name="image" type="file" id="new_pic" style="display: none;" onchange="this.form.submit()" />
+						<span style="cursor: pointer;" 
+							  onclick="$('#new_pic').click();" 
+							  class="glyphicon glyphicon-plus pull-right"></span>
+						<input type="hidden" name="path" value="gallery">
+			    		<input type="hidden" name="dad" value="{{ $id }}">
+						<input type="hidden" name="width" value="800">
+						<input type="hidden" name="height" value="450">
+					</form>
+				@else
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
+				  Agregar Album
+				</button>	
+				@endif
+
+			@endif
+			Galería @if($id) :: {{ $gallery[0]->title }} @endif</h2>
+		@if(!$id)
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Nuevo Album</h4>
+			      </div>
+			      <div class="modal-body">
+			        {!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true)) !!}
+					<input name="image" type="file" />
 					<input type="hidden" name="path" value="gallery">
 					<input type="hidden" name="width" value="800">
 					<input type="hidden" name="height" value="450">
 				</form>
-			@endif
-			Galería</h2>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Crear Album</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		@endif
+
+
 		<div id="links">
+		@if(!$id)
+			@foreach($gallery as $pic)
+				<div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb">
+					@if($edit)
+						{!! Form::open(array('url' => 'cms/'.$pic->id, 'method' => 'put', 'files' => true)) !!}
+							<input name="image" type="file" id="selectedFile_{{ $pic->id }}" style="display: none;" onchange="this.form.submit()" />
+							<h6 style="cursor: pointer;"
+								onclick="$('#selectedFile_{{ $pic->id }}').click();"
+								class="pull-right">
+								<span class="glyphicon glyphicon-edit"></span>
+							</h6>
+							<input type="hidden" name="path" value="gallery">
+							<input type="hidden" name="width" value="800">
+							<input type="hidden" name="height" value="450">
+							<input type="hidden" name="old_thumbnail" 
+								   value="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}">
+							<input type="hidden" name="old" value="{{ $pic->image }}">
+						</form>
+					@endif
+
+					<a href="@if(isset($edit) && $edit) /cmsgallery/{{$pic->id}} @else /gallery/{{$pic->id}} @endif" >
+				        <img class="thumbnail" src="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}" >
+				    </a>
+				</div>
+			@endforeach
+		@else
 			@foreach($gallery as $pic)
 				<div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb">
 					@if($edit)
@@ -81,13 +142,12 @@
 				    </a>
 				</div>
 			@endforeach
+		@endif
    			{!! $gallery->render() !!}
 		</div>
 	</div>
 
 </div>
-
-
 
 {{--  --}}
 
