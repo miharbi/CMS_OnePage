@@ -1,5 +1,5 @@
 @if(isset($edit) && $edit)
-	<nav class="navbar navbar-default navbar-fixed-top" style="z-index: 2000;">
+	<nav class="navbar navbar-default navbar-fixed-top" style="z-index: 1035;">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a type="button" class="btn btn-success btn-xs" href="auth/logout">

@@ -91,10 +91,11 @@ class ContentsController extends Controller
         $this->validate($request, [
             'image' => 'image'
         ]);
+        $insert = [];
         if ($request->input('dad')) {
             $insert = ['dad'   => $request->input('dad')];
-        }else{
-            $insert = [];
+        }elseif($request->input('title')){
+            $insert = ['title' => $request->input('title')];
         }
         $id = Content::insertGetId($insert);
 
@@ -125,7 +126,8 @@ class ContentsController extends Controller
         $content->update($data);
 
         if ($request->input('path') == 'gallery') {
-            return redirect()->to('cmsgallery');
+
+            return redirect()->to('cmsgallery'.($request->input('dad') || $request->input('title') ? '/'.($request->input('dad')? $request->input('dad'):$id):''));
         }
         return redirect()->to('cms');
     }
@@ -202,7 +204,7 @@ class ContentsController extends Controller
             return 'ok';
         }
         if ($request->input('path') == 'gallery') {
-            return redirect()->to('cmsgallery');
+            return redirect()->to('cmsgallery'.($request->input('dad') ? '/'.$request->input('dad') :''));
         }
         return redirect()->to('cms');
     }
