@@ -26,7 +26,7 @@
         <div class="col-md-4 footer-grid wow fadeInUpBig animated animated animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUpBig;">
             <h3>contacto<span class="opening">info</span></h3>
           <ul class="address">
-             <li>Av. José Pedro Alessandri #1946, Local 1 Ñuñoa</li>
+             <li>Av. José Pedro Alessandri #1946, Local 1 Ñuñoa </li>
              <li>(02) 2237 8246 - +56 9 6248 6149</li>
              <li><a class="mail" href="mailto:info@example.com">contactoinfinitysport@gmail.com</a></li>
           </ul>
