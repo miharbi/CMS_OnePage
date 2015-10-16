@@ -3,7 +3,7 @@
 		<!--sreen-gallery-cursual-->
 		<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">
 		      <h3>Staff</h3>
-			  <p>Conoce el personal que trabajará con usted</p>
+			  
 		</div>
 		<div class="col-md-9 sreen-gallery-cursual wow bounceInRight" data-wow-delay="0.4s">
 			<!-- start content_slider -->
