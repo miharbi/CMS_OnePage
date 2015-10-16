@@ -28,7 +28,7 @@
           <ul class="address">
              <li>Av. José Pedro Alessandri #1946, Local 1 Ñuñoa</li>
              <li>(02) 2237 8246 - +56 9 6248 6149</li>
-             <li><a class="mail" href="mailto:info@example.com">Contactoinfinitysport@gmail.com</a></li>
+             <li><a class="mail" href="mailto:info@example.com">contactoinfinitysport@gmail.com</a></li>
           </ul>
         </div>
           <div class="clearfix"></div>
