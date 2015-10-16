@@ -33,10 +33,10 @@
 		<ul class="cl-effect-16 nav navbar-nav navbar-right" style="margin-top: 2.5em;">
 			<li><a class="active" href="{{ url('/') }}">Home</a></li>
 			<li><a href="{{ url('/') }}#us">Nosotras</a></li>
+			<li><a href="{{ url('/') }}#courses">Clases</a></li>
+			<li><a href="{{ url('/') }}#schedules">Horarios</a></li>
 			<li><a href="{{ url('/') }}#staff">Staff</a></li>
 			<li><a href="{{ url('/') }}#events">Eventos</a></li>
-			<li><a href="{{ url('/') }}#schedules">Horarios</a></li>
-			<li><a href="{{ url('/') }}#courses">Clases</a></li>
 			<li><a href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif">Galeria</a></li>
 			<li><a href="{{ url('/') }}#reviews">Testimonios</a></li>
 			<li><a href="{{ url('/contact') }}">{{trans('about.contact')}}</a></li>
