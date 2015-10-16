@@ -1,3 +1,6 @@
+@extends('app')
+@section('title')@parent - {{ trans('home.gallery') }} @stop
+@section('content')
 <div class="new-section" id="reviews">
 	<div class="container">
 	<h3>Testimonios</h3>
@@ -50,3 +53,4 @@
 	@endforeach
 	</div>
 </div>
+@endsection

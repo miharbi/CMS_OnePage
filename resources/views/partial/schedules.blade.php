@@ -1,4 +1,4 @@
-<div class="tainers-section" id="schedules">
+<div class="tainers-section" id="horario">
 	<div class="container">
 
 

@@ -7,5 +7,5 @@
 		@include('partial.schedules')
 		@include('partial.staff')
 		@include('partial.events')
-		@include('partial.schedules')
+		
 @endsection

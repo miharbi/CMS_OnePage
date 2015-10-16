@@ -63,7 +63,7 @@
 		 $("a[href*=#]").on('click',function (e) {
 			    var target = this.hash;
 			    var $target = $(target);
-			    if ($target.offset() !== undefined ) { alert($target.offset());
+			    if ($target.offset() !== undefined ) { //alert($target.offset());
 			    	e.preventDefault();
 			    }else{
 			    	return ;
