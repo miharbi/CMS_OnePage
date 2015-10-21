@@ -14,10 +14,12 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('gallery/{id?}', 'HomeController@gallery');
+Route::get('testimonios', 'HomeController@reviews');
 
 Route::resource('cms', 'ContentsController');
 
 Route::get('cmsgallery/{id?}', 'ContentsController@gallery');
+Route::get('cmstestimonios', 'ContentsController@reviews');
 
 
 

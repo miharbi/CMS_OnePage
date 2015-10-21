@@ -70,6 +70,17 @@ class ContentsController extends Controller
         return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events', 'schedules'));
     }
 
+    public function reviews()
+    {
+        $edit = true;
+
+        $reviews = Content::where('type', 'review')
+                            ->orderBy("id")
+                            ->paginate(5);
+                                               
+        return view('partial.reviews', compact('edit', 'reviews'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,7 +113,7 @@ class ContentsController extends Controller
         if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
             $path   = '../public_html/images/'.$request->input('path').'/';
-            $path   = public_path().'/images/'.$request->input('path').'/';
+            //$path   = public_path().'/images/'.$request->input('path').'/';
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
@@ -129,7 +140,7 @@ class ContentsController extends Controller
 
             return redirect()->to('cmsgallery'.($request->input('dad') || $request->input('title') ? '/'.($request->input('dad')? $request->input('dad'):$id):''));
         }
-        return redirect()->to('cms');
+        return redirect()->back();
     }
 
     /**
@@ -170,7 +181,7 @@ class ContentsController extends Controller
         if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
             $path   = '../public_html/images/'.$request->input('path').'/'; //production
-            $path   = public_path().'/images/'.$request->input('path').'/';
+            //$path   = public_path().'/images/'.$request->input('path').'/';
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');
@@ -206,7 +217,7 @@ class ContentsController extends Controller
         if ($request->input('path') == 'gallery') {
             return redirect()->to('cmsgallery'.($request->input('dad') ? '/'.$request->input('dad') :''));
         }
-        return redirect()->to('cms');
+        return redirect()->back();
     }
 
     public function gallery($id = false)

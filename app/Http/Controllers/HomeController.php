@@ -92,4 +92,15 @@ class HomeController extends Controller
                                                
         return view('home', compact('edit', 'sliders', 'courses', 'reviews', 'us', 'staff', 'mision', 'owners', 'events', 'schedules'));
     }
+
+    public function reviews()
+    {
+        $edit = false;
+
+        $reviews = Content::where('type', 'review')
+                            ->orderBy("id")
+                            ->paginate(5);
+                                               
+        return view('partial.reviews', compact('edit', 'reviews'));
+    }
 }

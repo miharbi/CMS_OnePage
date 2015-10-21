@@ -31,14 +31,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navigation" id="bs-example-navbar-collapse-1">
 		<ul class="cl-effect-16 nav navbar-nav navbar-right" style="margin-top: 2.5em;">
-			<li><a class="active" href="{{ url('/') }}">Home</a></li>
+			<li><a class="active" href=" @if(isset($edit) && $edit) /cms @else {{ url('/') }} @endif">Home</a></li>
 			<li><a href="{{ url('/') }}#nosotras">Nosotras</a></li>
 			<li><a href="{{ url('/') }}#clases">Clases</a></li>
 			<li><a href="{{ url('/') }}#horario">Horarios</a></li>
 			<li><a href="{{ url('/') }}#staff">Staff</a></li>
 			<li><a href="{{ url('/') }}#eventos">Eventos</a></li>
 			<li><a href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif">Galeria</a></li>
-			<li><a href="{{ url('/') }}/testimonios">Testimonios</a></li>
+			<li><a href="@if(isset($edit) && $edit) /cmstestimonios @else /testimonios @endif">Testimonios</a></li>
 			<li><a href="{{ url('/contact') }}">{{trans('about.contact')}}</a></li>
 		</ul>
     </div><!-- /.navbar-collapse -->
