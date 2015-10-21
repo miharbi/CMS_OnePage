@@ -1,11 +1,11 @@
 <div class="tainers-section" id="horario">
 	<div class="container">
 
-
+<img src="images/horario.jpg"</div>
 		<!--sreen-gallery-cursual-->
 		<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">
 		      
-<img src="images/horario.jpg"</div>
+
 
 
 		      <h3>Horarios</h3>
