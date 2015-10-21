@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@section('title'){{env('MAIN_NAME')}}@show</title>
-
+	<link rel="icon" type="image/png" href="{{ asset('/images/favicon.png') }}" />
 	<!-- Latest compiled and minified CSS -->
 	<link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">

@@ -63,10 +63,10 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left prev">
                         <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
+                        Anterior
                     </button>
                     <button type="button" class="btn btn-primary next">
-                        Next
+                        Siguiente
                         <i class="glyphicon glyphicon-chevron-right"></i>
                     </button>
                 </div>
@@ -80,11 +80,12 @@
 
 	<div class="container">
 		<h2>
-			@if($edit)
-				@if($id)
 					<a  href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif"  class="pull-right"  >
 					<span class="glyphicon glyphicon-home pull-right"></span>
 					</a>
+			@if($edit)
+				@if($id)
+					
 					{!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true)) !!}
 						<input name="image" type="file" id="new_pic" style="display: none;" onchange="this.form.submit()" />
 						<span style="cursor: pointer;" 

@@ -1,4 +1,3 @@
-<link rel="icon" type="image/png" href="/images/favicon.png" />
 @if(isset($edit) && $edit)
 	<nav class="navbar navbar-default navbar-fixed-top" style="z-index: 1035;">
 	  <div class="container-fluid">
