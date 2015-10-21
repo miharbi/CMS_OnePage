@@ -1,5 +1,5 @@
 
-<img src="images/horario.jpg"</div>
+<center><img src="images/horario.jpg"</div></center>
 
 <div class="tainers-section" id="horario">
 	<div class="container">
