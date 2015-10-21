@@ -3,9 +3,9 @@
         <div class="f-grids">
         <div class="col-md-4 footer-grid wow fadeInUpBig animated animated animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUpBig;">
         <h3>Nuestras<span class="opening">Clases</span></h3>
-          <a href="{{ url('/') }}#courses"><h5>Zumba Fitness</h5></a>
-          <a href="{{ url('/') }}#courses"><h5>Zumba Kids</h5></a>
-           <a href="{{ url('/') }}#courses"><h5>Aerocombat</h5></a>
+          <li><a href="{{ url('/') }}#clases"><h5>Zumba Fitness</h5></a>
+          <li><a href="{{ url('/') }}#clases"><h5>Zumba Kids</h5></a>
+          <li><a href="{{ url('/') }}#clases"><h5>Aerocombat</h5></a>
            
         </div>
         <div class="col-md-4 footer-grid wow fadeInUpBig animated animated animated" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUpBig;">
