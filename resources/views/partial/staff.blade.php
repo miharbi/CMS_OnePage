@@ -3,6 +3,8 @@
 		<!--sreen-gallery-cursual-->
 		<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">
 		      <h3>Staff</h3>
+		      <img src="images/flecha_izquierda.jpg"> 
+		      <img src="images/flecha_derecha.jpg">
 			  
 		</div>
 		<div class="col-md-9 sreen-gallery-cursual wow bounceInRight" data-wow-delay="0.4s">
