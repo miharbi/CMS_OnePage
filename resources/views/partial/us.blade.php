@@ -9,12 +9,12 @@
 
 <div class="fb-like"></div>
 
-	
   	<div class="trainee-section">
+
 		<div class="container">
-		<div class="trainee-grids">
+		<div class="trainee-grids" id="nosotras">
 			@foreach( $owners as $owner)
-				<div class="col-md-4 trainee-grid wow {{ ['zoomInLeft','fadeInUpBig','zoomInRight'][rand (0,2)] }}">
+				<div class="col-md-4 trainee-grid wow {{ ['zoomInLeft','fadeInUpBig','zoomInRight'][rand (0,2)] }}" >
 					{{-- imagen  --}}
 					@if($edit)
 							{!! Form::open(array('url' => 'cms/'.$owner->id, 'method' => 'put', 'files' => true)) !!}
@@ -47,17 +47,17 @@
 				    		style="text-align: center;">
 		    			{{ $owner->title }}	
 		    		</h1>
-					<h4 @if($edit) 
+				{{-- 	<h4 @if($edit) 
 				    		contenteditable="true" 
 				    		id="content_{{$owner->id}}" 
 				    		onclick="$('.save_{{$owner->id}}').removeClass('hide');"  @endif>
 		    			{{ $owner->content }}
-		    		</h4>
+		    		</h4> 
 					<h4></h4>
-					<h4></h4>
+					<h4></h4>--}}
 				</div>
 			@endforeach
-			<div class="clearfix"></div>
+			
 	   	</div>
 	</div>
 
@@ -86,7 +86,7 @@
 
 	
 
-	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;" id="nosotras">
+	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;" >
 		<div class="container">
 			@if($edit)
 				<h4 style="cursor: pointer;">
