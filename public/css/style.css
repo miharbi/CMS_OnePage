@@ -1843,7 +1843,7 @@ ul.address li a {
     }
 
 .social_box{
-    position: fixed;
+    position: absolute;
     left: 1.5em;
     z-index: 1000;
     margin-top: 17px;
