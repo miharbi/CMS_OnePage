@@ -1,7 +1,7 @@
 
 <center><img src="images/horario.jpg"</div></center>
 
-<div class="tainers-section" id="horario">
+<div class="tainers-section" id="horarios">
 	<div class="container">
 
 

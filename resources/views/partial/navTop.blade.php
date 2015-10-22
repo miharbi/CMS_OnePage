@@ -34,7 +34,7 @@
 			<li><a class="active" href=" @if(isset($edit) && $edit) /cms @else {{ url('/') }} @endif">Home</a></li>
 			<li><a href="{{ url('/') }}#nosotras">Nosotras</a></li>
 			<li><a href="{{ url('/') }}#clases">Clases</a></li>
-			<li><a href="{{ url('/') }}#horario">Horarios</a></li>
+			<li><a href="{{ url('/') }}#horarios">Horarios</a></li>
 			<li><a href="{{ url('/') }}#staff">Staff</a></li>
 			<li><a href="{{ url('/') }}#eventos">Eventos</a></li>
 			<li><a href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif">Galeria</a></li>
