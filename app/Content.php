@@ -8,5 +8,5 @@ class Content extends Model
 {
     protected $table = 'contents';
 
-    protected $fillable = ['title', 'content', 'image', 'type'];
+    protected $fillable = ['title', 'content', 'image', 'type', 'youtube'];
 }

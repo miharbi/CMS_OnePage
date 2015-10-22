@@ -79,10 +79,11 @@
 <div class="banner-bottom wow bounceIn animated">
 
 	<div class="container">
-		<h2>
+		<h2>	@if($id)
 					<a  href="@if(isset($edit) && $edit) /cmsgallery @else /gallery @endif"  class="pull-right"  >
-					<span class="glyphicon glyphicon-home pull-right"></span>
+					<span class="glyphicon glyphicon-home pull-right">&nbsp;</span>
 					</a>
+				@endif	
 			@if($edit)
 				@if($id)
 					
@@ -90,12 +91,21 @@
 						<input name="image" type="file" id="new_pic" style="display: none;" onchange="this.form.submit()" />
 						<span style="cursor: pointer;" 
 							  onclick="$('#new_pic').click();" 
-							  class="glyphicon glyphicon-plus pull-right"></span>
+							  class="glyphicon glyphicon-picture pull-right">&nbsp;</span>
 						<input type="hidden" name="path" value="gallery">
 			    		<input type="hidden" name="dad" value="{{ $id }}">
 						<input type="hidden" name="width" value="800">
 						<input type="hidden" name="height" value="450">
 					</form>
+					{!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true, 'id' => 'youtubeForm')) !!}
+						<input type="hidden" name="youtube" id="youtube" value="">
+						<input type="hidden" name="path" value="gallery">
+						<input type="hidden" name="dad" value="{{ $id }}">
+						<span style="cursor: pointer;" 
+							  onclick="getYoutubeId()" 
+							  class="glyphicon glyphicon-film pull-right">&nbsp;</span>
+					</form>
+
 				@else
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
@@ -130,7 +140,7 @@
 					@endif
 
 					<a href="@if(isset($edit) && $edit) /cmsgallery/{{$pic->id}} @else /gallery/{{$pic->id}} @endif" >
-				        <img class="thumbnail" src="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}" >
+				        <img class="thumbnail" style="width:100%" src="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}" >
 				        <h5>{{ $pic->title }}</h5> 
 				    </a>
 				</div>
@@ -157,7 +167,12 @@
 					@endif
 
 					<a href="{{ $pic->image }}"  data-gallery>
-				        <img class="thumbnail" src="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}" >
+				        <img class="thumbnail img-responsive" style="width:100%" src="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}" >
+				    </a>
+				    <a href="https://www.youtube.com/watch?v=jvet_E4JgLo" type="text/html"
+						data-youtube="jvet_E4JgLo"
+						poster="http://img.youtube.com/vi/jvet_E4JgLo/0.jpg"  data-gallery>
+				        <img class="thumbnail img-responsive" style="width:100%" src="http://img.youtube.com/vi/jvet_E4JgLo/0.jpg" >
 				    </a>
 				</div>
 			@endforeach
@@ -172,4 +187,18 @@
 
 <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
 <script src="{{ asset('js/bootstrap-image-gallery.min.js' ) }}"></script>
+<script>
+
+	function getYoutubeId () {
+		var url = prompt("Introduzca la Url del video en youtube");
+		var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+		if(videoid != null) {
+		   $('#youtube').val(videoid[1]);
+		   $('#youtubeForm').submit();
+		} else { 
+		    alert("Esta Url Youtube no es valida!");
+		}
+	}
+
+</script>
 @endsection

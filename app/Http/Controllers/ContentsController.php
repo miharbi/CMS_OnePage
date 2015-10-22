@@ -129,7 +129,8 @@ class ContentsController extends Controller
                    ->save($path.$imageNameThumbnail);
             }
 
-            $data = ['image'   => $image, 'type' => 'gallery'];
+            $data = ['image'   => $image, 'type' => 'gallery', 'youtube' => $request->input('youtube') ];
+            
         } else {
             return redirect()->to('cmsgallery');
         }
