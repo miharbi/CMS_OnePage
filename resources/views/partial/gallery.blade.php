@@ -97,8 +97,8 @@
 						<input type="hidden" name="width" value="800">
 						<input type="hidden" name="height" value="450">
 					</form>
-					{!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true, 'id' => 'youtubeForm')) !!}
-						<input type="hidden" name="youtube" id="youtube" value="">
+					{!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true, 'id' => 'youtubeForm_')) !!}
+						<input type="hidden" name="youtube" id="youtube_" value="">
 						<input type="hidden" name="path" value="gallery">
 						<input type="hidden" name="dad" value="{{ $id }}">
 						<span style="cursor: pointer;" 
@@ -148,6 +148,7 @@
 		@else
 			@foreach($gallery as $pic)
 				<div class="col-lg-3 col-md-4 col-xs-12 col-sm-6 thumb">
+				@if(!$pic->youtube)
 					@if($edit)
 						{!! Form::open(array('url' => 'cms/'.$pic->id, 'method' => 'put', 'files' => true)) !!}
 							<input name="image" type="file" id="selectedFile_{{ $pic->id }}" style="display: none;" onchange="this.form.submit()" />
@@ -169,11 +170,26 @@
 					<a href="{{ $pic->image }}"  data-gallery>
 				        <img class="thumbnail img-responsive" style="width:100%" src="{{ str_replace('/'.$pic->id.'_', '/thumbnail_'.$pic->id.'_', $pic->image) }}" >
 				    </a>
-				    <a href="https://www.youtube.com/watch?v=jvet_E4JgLo" type="text/html"
-						data-youtube="jvet_E4JgLo"
-						poster="http://img.youtube.com/vi/jvet_E4JgLo/0.jpg"  data-gallery>
-				        <img class="thumbnail img-responsive" style="width:100%" src="http://img.youtube.com/vi/jvet_E4JgLo/0.jpg" >
+				@else
+					@if($edit)
+					{!! Form::open(array('url' => 'cms/'.$pic->id, 'method' => 'put', 'id' => 'youtubeForm_'.$pic->id)) !!}
+						<input type="hidden" name="youtube" id="youtube_{{ $pic->id }}" value="">
+						<input type="hidden" name="path" value="gallery">
+						<input type="hidden" name="dad" value="{{ $id }}">
+						<h6 style="cursor: pointer;"
+								onclick="getYoutubeId('{{ $pic->id }}')"
+								class="pull-right">
+								<span class="glyphicon glyphicon-edit"></span>
+							</h6>
+					</form>
+					@endif
+
+				    <a href="https://www.youtube.com/watch?v={{ $pic->youtube }}"  type="text/html"
+						data-youtube="{{ $pic->youtube }}"
+						poster="http://img.youtube.com/vi/{{ $pic->youtube }}/0.jpg"  data-gallery>
+				        <img class="thumbnail img-responsive" style=" min-height:255px;" src="http://img.youtube.com/vi/{{ $pic->youtube }}/0.jpg" >
 				    </a>
+				    @endif
 				</div>
 			@endforeach
 		@endif
@@ -189,12 +205,15 @@
 <script src="{{ asset('js/bootstrap-image-gallery.min.js' ) }}"></script>
 <script>
 
-	function getYoutubeId () {
+	function getYoutubeId (id) {
+		if (!id) {
+			id='';
+		}
 		var url = prompt("Introduzca la Url del video en youtube");
 		var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
 		if(videoid != null) {
-		   $('#youtube').val(videoid[1]);
-		   $('#youtubeForm').submit();
+		   $('#youtube_'+id).val(videoid[1]);
+		   $('#youtubeForm_'+id).submit();
 		} else { 
 		    alert("Esta Url Youtube no es valida!");
 		}

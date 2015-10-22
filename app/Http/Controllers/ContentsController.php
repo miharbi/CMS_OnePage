@@ -104,7 +104,11 @@ class ContentsController extends Controller
         ]);
         $insert = [];
         if ($request->input('dad')) {
-            $insert = ['dad'   => $request->input('dad')];
+
+            $insert = ['dad'     => $request->input('dad'), 
+                       'type'    => $request->input('path'), 
+                       'youtube' => $request->input('youtube') ];
+
         }elseif($request->input('title')){
             $insert = ['title' => $request->input('title')];
         }
@@ -129,13 +133,16 @@ class ContentsController extends Controller
                    ->save($path.$imageNameThumbnail);
             }
 
-            $data = ['image'   => $image, 'type' => 'gallery', 'youtube' => $request->input('youtube') ];
+            $data = ['image'   => $image];
             
-        } else {
+        } elseif(!$request->input('youtube')) {
             return redirect()->to('cmsgallery');
         }
-        $content = Content::find($id);
-        $content->update($data);
+        if(isset($data)){
+            $content = Content::find($id);
+            $content->update($data);
+        }
+
 
         if ($request->input('path') == 'gallery') {
 
@@ -201,9 +208,10 @@ class ContentsController extends Controller
             @unlink('/'.$request->input('old'));
 
             $data = ['image'   => $image];
-        } elseif ($request->input('title') || $request->input('content')) {
+        } elseif ($request->input('title') || $request->input('content') || $request->input('youtube') ) {
             $data = [
                 'title'   => trim(strip_tags($request->input('title'))),
+                'youtube'   => trim(strip_tags($request->input('youtube'))),
                 'content' => trim(strip_tags($request->input('content')))
             ];
         } else {
