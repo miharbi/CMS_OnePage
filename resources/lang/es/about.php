@@ -5,7 +5,7 @@ return [
     'contact' => 'Contacto',
     'name' => 'Nombre',
     'email' => 'Email',
-    'emails' => 'Emails',
+    'emails' => 'Email',
     'message' => 'Mensaje',
     'phone_numbers' => 'Telefonos',
     'name_placeholder' => 
