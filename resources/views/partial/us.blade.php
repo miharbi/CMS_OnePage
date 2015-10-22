@@ -7,31 +7,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="fb-like"></div>
 
-	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;" id="nosotras">
-		<div class="container">
-			@if($edit)
-				<h4 style="cursor: pointer;">
-			    	<span class="glyphicon glyphicon-floppy-disk save_{{$mision->id}} hide pull-right" 
-			    		  onclick="saveContent({{$mision->id}})" ></span>
-			    	<span class="glyphicon glyphicon glyphicon-ok text-success saved_{{$mision->id}} hide pull-right"></span>	  
-		    	</h4>	  
-		    @endif
-		    <h2 @if($edit) 
-		    		contenteditable="true" 
-		    		id="title_{{$mision->id}}" 
-		    		onclick="$('.save_{{$mision->id}}').removeClass('hide');"  @endif>
-		    	{!! $mision->title !!} 
-		    </h2>
-			<div @if($edit) 
-		    		contenteditable="true" 
-		    		id="content_{{$mision->id}}" 
-		    		onclick="$('.save_{{$mision->id}}').removeClass('hide');"  @endif>
-		    	{!! $mision->content !!}
-		    </div>
-		 </div>
-	</div>
 	
   	<div class="trainee-section">
 		<div class="container">
@@ -105,4 +81,30 @@
     		onclick="$('.save_{{$us->id}}').removeClass('hide');"  
     	   @endif>
 			{!! $us->content !!}</p>
+	</div>
+
+	<div class="fb-like"></div>
+
+	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;" id="nosotras">
+		<div class="container">
+			@if($edit)
+				<h4 style="cursor: pointer;">
+			    	<span class="glyphicon glyphicon-floppy-disk save_{{$mision->id}} hide pull-right" 
+			    		  onclick="saveContent({{$mision->id}})" ></span>
+			    	<span class="glyphicon glyphicon glyphicon-ok text-success saved_{{$mision->id}} hide pull-right"></span>	  
+		    	</h4>	  
+		    @endif
+		    <h2 @if($edit) 
+		    		contenteditable="true" 
+		    		id="title_{{$mision->id}}" 
+		    		onclick="$('.save_{{$mision->id}}').removeClass('hide');"  @endif>
+		    	{!! $mision->title !!} 
+		    </h2>
+			<div @if($edit) 
+		    		contenteditable="true" 
+		    		id="content_{{$mision->id}}" 
+		    		onclick="$('.save_{{$mision->id}}').removeClass('hide');"  @endif>
+		    	{!! $mision->content !!}
+		    </div>
+		 </div>
 	</div>
