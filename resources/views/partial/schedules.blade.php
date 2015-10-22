@@ -10,7 +10,12 @@
 		      
 
 
-		      <h3>Horarios</h3>		      
+		      <h3>Horarios</h3>		
+
+		      <img src="images/flecha_izquierda.jpg"> 
+		      <img src="images/flecha_derecha.jpg">
+
+
 
 			  
 		</div>
