@@ -7,6 +7,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<div class="fb-like"></div>
 
 	
   	<div class="trainee-section">
@@ -83,7 +84,7 @@
 			{!! $us->content !!}</p>
 	</div>
 
-	<div class="fb-like"></div>
+	
 
 	<div class="banner-bottom wow bounceIn animated " data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: bounceIn;" id="nosotras">
 		<div class="container">
