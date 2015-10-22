@@ -3,7 +3,8 @@
 		<!--sreen-gallery-cursual-->
 		<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">
 		      <h3>Staff</h3>
-			  
+			  <img src="images/flecha_izquierda.jpg" class="staff prev"> 
+		      <img src="images/flecha_derecha.jpg" class="staff next">
 		</div>
 		<div class="col-md-9 sreen-gallery-cursual wow bounceInRight" data-wow-delay="0.4s">
 			<!-- start content_slider -->
@@ -54,13 +55,20 @@
 <script>
 	@if(!$edit)
 	    $(document).ready(function() {
-	      $(".owl-staff").owlCarousel({
+	      owl_staff = $(".owl-staff");	
+	      owl_staff.owlCarousel({
 	        items :3,
 	        autoPlay : true,
 	        navigation :true,
 	        navigationText :  false,
 	        pagination : false,
 	      });
+	      $(".staff.next").click(function(){ 
+		    owl_staff.trigger('owl.next');
+		  });
+		  $(".staff.prev").click(function(){ 
+		    owl_staff.trigger('owl.prev');
+		  });
 	    });
 	@endif    
 </script>	

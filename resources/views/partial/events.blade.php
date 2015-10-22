@@ -3,10 +3,12 @@
 		<!--sreen-gallery-cursual-->
 		<div class="col-md-3 tainer wow bounceInLeft" data-wow-delay="0.4s">
 		      <h3>Eventos</h3>
+		      <img src="images/flecha_izquierda.jpg" class="event prev"> 
+		      <img src="images/flecha_derecha.jpg" class="event next">
 		</div>
 		<div class="col-md-9 sreen-gallery-cursual wow bounceInRight" data-wow-delay="0.4s">
 			<!-- start content_slider -->
-		       <div class=" @if(!$edit) owl-staff owl-carousel @endif" >
+		       <div class=" @if(!$edit) owl-event owl-carousel @endif" >
 		       		@foreach($events as $event )
 		                <div class="item">
 							@if($edit)
@@ -53,13 +55,20 @@
 <script>
 	@if(!$edit)
 	    $(document).ready(function() {
-	      $(".owl-staff").owlCarousel({
+	      owl_event = $(".owl-event");		
+	      owl_event.owlCarousel({
 	        items :3,
 	        autoPlay : true,
 	        navigation :true,
 	        navigationText :  false,
 	        pagination : false,
 	      });
+	      $(".event.next").click(function(){ 
+		    owl_event.trigger('owl.next');
+		  });
+		  $(".event.prev").click(function(){ 
+		    owl_event.trigger('owl.prev');
+		  });
 	    });
 	@endif    
 </script>	

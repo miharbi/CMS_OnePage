@@ -12,8 +12,8 @@
 
 		      <h3>Horarios</h3>		
 
-		      <img src="images/flecha_izquierda.jpg"> 
-		      <img src="images/flecha_derecha.jpg">
+		      <img src="images/flecha_izquierda.jpg" class="schedule prev"> 
+		      <img src="images/flecha_derecha.jpg" class="schedule next">
 
 
 
@@ -68,13 +68,20 @@
 <script>
 	@if(!$edit)
 	    $(document).ready(function() {
-	      $(".owl-schedule").owlCarousel({
+	      owl_schedule=$(".owl-schedule");		
+	      owl_schedule.owlCarousel({
 	        items :3,
 	        autoPlay : true,
-	        navigation :true,
-	        navigationText :  false,
+	        navigation : true,
+	        navigationText : false,
 	        pagination : false,
 	      });
+	      $(".schedule.next").click(function(){ 
+		    owl_schedule.trigger('owl.next');
+		  });
+		  $(".schedule.prev").click(function(){ 
+		    owl_schedule.trigger('owl.prev');
+		  });
 	    });
 	@endif    
 </script>	
