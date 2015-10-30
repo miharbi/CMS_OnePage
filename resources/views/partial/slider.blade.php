@@ -32,14 +32,10 @@
 				$( '#cbp-fwslider' ).cbpFWSlider();
 			@if(!$edit)	
 				setInterval( function(){
-                    if($('.cbp-fwnext').is(":visible"))
-                        {
-                            $('.cbp-fwnext').click();   
-		                }
-	                else{
-	                        $('.cbp-fwdots').find('span').click();
-	                    }
-		        } ,3000 );
+				    if($('.cbp-fwdots').find('span:last').hasClass('cbp-fwcurrent')){
+				        $('.cbp-fwdots').find('span:first-child').click();
+				    }else{ $('.cbp-fwnext').click();} } ,3000 );
+
 		    @endif    
 			} );
 	</script>
