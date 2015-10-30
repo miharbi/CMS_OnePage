@@ -1859,6 +1859,13 @@ ul.address li a {
       height: auto;
     }
 
+    }
+.owl-events .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .social_box{
     position: absolute;
     left: 1.5em;
