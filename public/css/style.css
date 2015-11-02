@@ -5,17 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 
-body {
-    font-family: "Source Sans Pro",Calibri,Candara,Arial,sans-serif;
-    font-size: 15px;
-    line-height: 20px;
-    
-    background-color: #ffffff;
-}
 
-
-.col-md-4 {
-    width: 30.333333%;
 
 html, body{
 font-family: 'Open Sans', sans-serif;
@@ -272,7 +262,7 @@ nav.navigation a:focus {
   font-weight:700;
   color:#FF9933;
     font-family: 'Orbitron', sans-serif;
-    margin-bottom: 12px;
+    
 }
 .banner-bottom p {
   text-align: center;
@@ -1858,13 +1848,6 @@ ul.address li a {
       width: 100%;
       height: auto;
     }
-
-    }
-.owl-events .item img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
 
 .social_box{
     position: absolute;
