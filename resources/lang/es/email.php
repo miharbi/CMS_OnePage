@@ -23,14 +23,14 @@ return [
                                          comunicación puede ser confidencial y puede estar sujeta al privilegio abogado-cliente. si 
                                          usted es el destinatario y no desea recibir mensajes electrónicos similares de 
                                          nosotros en el futuro, por favor, responda al remitente a este efecto.',
-        'message1'                    =>'Productos Químicos para la industria',
+        'message1'                    =>'Academia de baile, específicamente #zumba',
     ],
     
     // Mail used when the user resets his/her password
     // password.blade.php
     'reset_password'              =>[
         'message1'                    =>'Forgot your password.',
-        'message2'                    =>'We received a request to reset the password of your Tagbum account.',
+        'message2'                    =>'We received a request to reset the password of your account.',
         'message3'                    =>'If you want to reset your password, please click on the link below (if it does not work, please copy and paste the URL into your browser)',
         'message4'                    =>'This link takes you to a secure page where you can change your password',
         'message5'                    =>'If you do not want to reset your password, please ignore this message. Your password wont change. If you have any doubt, please contact us at ',
