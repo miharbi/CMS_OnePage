@@ -37,7 +37,7 @@
 							class="{{ $course->id % 2 == 0 ? 'pull-left' : 'pull-right' }}">
 							<span class="glyphicon glyphicon-edit"></span>
 						</h3>
-						<input type="hidden" name="path" value="courses">
+						<input type="hidden" name="path" value="course">
 						<input type="hidden" name="width" value="570">
 						<input type="hidden" name="height" value="332">
 						<input type="hidden" name="old" value="{{ $course->image }}">

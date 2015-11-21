@@ -32,7 +32,7 @@
 										class="pull-left">
 										<span class="glyphicon glyphicon-edit"></span>
 									</h3>
-									<input type="hidden" name="path" value="schedules">
+									<input type="hidden" name="path" value="schedule">
 									<input type="hidden" name="width" value="265">
 									<input type="hidden" name="height" value="444">
 									<input type="hidden" name="old" value="{{ $schedule->image }}">

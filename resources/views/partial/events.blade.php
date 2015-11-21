@@ -21,7 +21,7 @@
 										class="pull-left">
 										<span class="glyphicon glyphicon-edit"></span>
 									</h3>
-									<input type="hidden" name="path" value="events">
+									<input type="hidden" name="path" value="event">
 									<input type="hidden" name="width" value="265">
 									<input type="hidden" name="height" value="444">
 									<input type="hidden" name="old" value="{{ $event->image }}">

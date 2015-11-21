@@ -86,9 +86,95 @@ class ContentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request)
+    {   
+        switch ($request->input('type')) {
+
+            case 'gallery':
+                $options = [
+                        'title'      => 'Nuevo Album',
+                        'hasTitle'   => true,
+                        'hasContent' => false,
+                        'path'       => 'gallery', 
+                        'hasImg'     => [
+                                        'width'  => 800,
+                                        'height' => 450 
+                                        ],  
+                        ];
+                break;
+
+            case 'slider':
+                $options = [
+                        'title'      => 'Nuevo Slider',
+                        'hasTitle'   => false,
+                        'hasContent' => false,
+                        'path'       => 'slider', 
+                        'hasImg'     => [
+                                        'width'  => 1345,
+                                        'height' => 450 
+                                        ],  
+                        ];
+                break;    
+
+            case 'course':
+                $options = [
+                        'title'      => 'Nueva Clase',
+                        'hasTitle'   => true,
+                        'hasContent' => true,
+                        'path'       => 'course', 
+                        'hasImg'     => [
+                                        'width'  => 570,
+                                        'height' => 332 
+                                        ],  
+                        ];
+                break; 
+
+            case 'review':
+                $options = [
+                        'title'      => 'Nuevo Testimonio',
+                        'hasTitle'   => true,
+                        'hasContent' => true,
+                        'path'       => 'review', 
+                        'hasImg'     => [
+                                        'width'  => 570,
+                                        'height' => 332 
+                                        ],  
+                        ];
+                break; 
+
+            case 'staff':
+                $options = [
+                        'title'      => 'Nuevo Staff',
+                        'hasTitle'   => true,
+                        'hasContent' => true,
+                        'path'       => 'staff', 
+                        'hasImg'     => [
+                                        'width'  => 265,
+                                        'height' => 444 
+                                        ],  
+                        ];
+                break;
+
+            case 'event':
+                $options = [
+                        'title'      => 'Nuevo Evento',
+                        'hasTitle'   => true,
+                        'hasContent' => true,
+                        'path'       => 'event', 
+                        'hasImg'     => [
+                                        'width'  => 265,
+                                        'height' => 444 
+                                        ],  
+                        ];
+                break;    
+
+            default:
+                # code...
+                break;
+        }
+        
+
+        return view('partial.newContent', $options);
     }
 
     /**
@@ -105,19 +191,29 @@ class ContentsController extends Controller
         $insert = [];
         if ($request->input('dad')) {
 
-            $insert = ['dad'     => $request->input('dad'), 
+            $insert = [
+                       'dad'     => $request->input('dad'), 
                        'type'    => $request->input('path'), 
-                       'youtube' => $request->input('youtube') ];
+                       'youtube' => $request->input('youtube'), 
+                       ];
 
         }elseif($request->input('title')){
-            $insert = ['title' => $request->input('title')];
+            $insert = [
+                        'title' => $request->input('title'),
+                        'content' => $request->input('content'),
+                      ];
         }
         $id = Content::insertGetId($insert);
 
         if ($request->file('image') && $request->file('image')->isValid()) {
             $imageName = $id.'_'.$request->file('image')->getClientOriginalName();
-            $path   = '../public_html/images/'.$request->input('path').'/';
-            //$path   = public_path().'/images/'.$request->input('path').'/';
+            $path   = '../public_html/images/'.$request->input('path');
+            //$path   = public_path().'/images/'.$request->input('path');
+            if (!file_exists($path)) {
+                mkdir($path, 0777);
+            }
+            $path = $path.'/';
+
             $image  = '/images/'.$request->input('path').'/'.$imageName;
             $width  = $request->input('width');
             $height = $request->input('height');

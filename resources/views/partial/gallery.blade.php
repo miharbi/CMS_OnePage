@@ -1,20 +1,10 @@
 @extends('app')
 @section('title')@parent - {{ trans('home.gallery') }} @stop
 @section('content')
-<?php  
-		$options = [
-					'title'      => 'Nuevo Album',
-					'hasTitle'	 => true,
-					'hasContent' => false,
-					'path'   	 => 'gallery', // content type and folder to upload imgs
-					'hasImg'	 => [
-									'width'  => 800,
-									'height' => 450 
-									], 	
-					];
-?>
-@include('partial.newContentModal', $options)
 
+@if(!$id && $edit)
+	@include('partial.newContentModal')
+@endif
 <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 <link rel="stylesheet" href="{{ asset('css/bootstrap-image-gallery.min.css') }}">
 
@@ -86,9 +76,10 @@
 
 				@else
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
+				<a type="button" href="cms/create?type=gallery" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
 				  Agregar Album
-				</button>	
+				</a>	
+
 				@endif
 
 			@endif

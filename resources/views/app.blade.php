@@ -51,6 +51,9 @@
 			new WOW().init();
 		@endif
 		$(document).ready(function() {
+			$('body').on('hidden.bs.modal', '.modal', function () {
+			    $(this).removeData('bs.modal');
+			});
 		 var navoffeset=$(".header-bottom").offset().top;
 		 $(window).scroll(function(){
 			var scrollpos=$(window).scrollTop(); 
