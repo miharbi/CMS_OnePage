@@ -1,41 +1,19 @@
 @extends('app')
 @section('title')@parent - {{ trans('home.gallery') }} @stop
 @section('content')
-
-		@if(!$id && $edit)
-			<div class="modal fade" id="myModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Nuevo Album</h4>
-			      </div>
-			      {!! Form::open(array('url' => 'cms', 'method' => 'post', 'files' => true)) !!}
-			      <div class="modal-body">
-			        
-			        	  <div class="form-group">
-				            <label for="recipient-name" class="control-label">Título:</label>
-				            <input type="text" class="form-control" name="title" required>
-				          </div>
-				          <div class="form-group">
-				            <label for="message-text" class="control-label">Foto Principal:</label>
-				            <input name="image" type="file" required />
-				          </div>
-						
-						<input type="hidden" name="path" value="gallery">
-						<input type="hidden" name="width" value="800">
-						<input type="hidden" name="height" value="450">
-					
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="submit" class="btn btn-primary" >Crear Album</button>
-			      </div>
-			      </form>
-			    </div>
-			  </div>
-			</div>
-		@endif
+<?php  
+		$options = [
+					'title'      => 'Nuevo Album',
+					'hasTitle'	 => true,
+					'hasContent' => false,
+					'path'   	 => 'gallery', // content type and folder to upload imgs
+					'hasImg'	 => [
+									'width'  => 800,
+									'height' => 450 
+									], 	
+					];
+?>
+@include('partial.newContentModal', $options)
 
 <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 <link rel="stylesheet" href="{{ asset('css/bootstrap-image-gallery.min.css') }}">

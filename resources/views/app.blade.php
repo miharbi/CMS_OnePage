@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="google-site-verification" content="Qi1MZrKvKgfIQuKaFdExsQxCpjd6X0wtxrz2MB9em0I" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@section('title'){{env('MAIN_NAME')}}@show</title>
 	<link rel="icon" type="image/png" href="{{ asset('/images/favicon.png') }}" />

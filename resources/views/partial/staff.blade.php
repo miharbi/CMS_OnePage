@@ -58,7 +58,7 @@
 	      owl_staff = $(".owl-staff");	
 	      owl_staff.owlCarousel({
 	        items :3,
-	        autoPlay : true,
+	        //autoPlay : true,
 	        navigation :true,
 	        navigationText :  false,
 	        pagination : false,

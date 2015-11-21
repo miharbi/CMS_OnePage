@@ -9,7 +9,7 @@
 								<h3 style="cursor: pointer;"
 									onclick="$('#selectedFile_{{ $slider->id }}').click();"
 									class="pull-right">
-									<span class="glyphicon glyphicon-edit"></span>
+									<span class="glyphicon glyphicon-edit" style="background-color: white; border-radius: 0.2em;     margin-top: 1em;"></span>
 								</h3>
 								<input type="hidden" name="path" value="slider">
 								<input type="hidden" name="width" value="1345">
