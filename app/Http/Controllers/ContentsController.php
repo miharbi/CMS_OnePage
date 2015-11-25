@@ -35,7 +35,7 @@ class ContentsController extends Controller
 
         $courses = Content::where('type', 'course')
                             ->orderBy('id')
-                            ->take(4)
+                            //->take(4)
                             ->get();
 
         $reviews = Content::where('type', 'review')
@@ -54,12 +54,12 @@ class ContentsController extends Controller
 
         $staff = Content::where('type', 'staff')
                             ->orderBy('id')
-                            ->take(10)
+                           // ->take(10)
                             ->get();
 
         $events = Content::where('type', 'event')
                             ->orderBy('id')
-                            ->take(10)
+                           // ->take(10)
                             ->get();
 
         $schedules = Content::where('type', 'schedule')
@@ -167,6 +167,18 @@ class ContentsController extends Controller
                                         ],  
                         ];
                 break;    
+                case 'schedule':
+                $options = [
+                        'title'      => 'Nuevo Horario',
+                        'hasTitle'   => true,
+                        'hasContent' => true,
+                        'path'       => 'schedule', 
+                        'hasImg'     => [
+                                        'width'  => 265,
+                                        'height' => 444 
+                                        ],  
+                        ];
+                break;
 
             default:
                 # code...
@@ -200,6 +212,7 @@ class ContentsController extends Controller
         }elseif($request->input('title')){
             $insert = [
                         'title' => $request->input('title'),
+                        'type'    => $request->input('path'), 
                         'content' => $request->input('content'),
                       ];
         }
