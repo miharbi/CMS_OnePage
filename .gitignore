@@ -5,3 +5,5 @@ Homestead.json
 .env
 /public/images/*
 Rakefile
+
+github-gem/

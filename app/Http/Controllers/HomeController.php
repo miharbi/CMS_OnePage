@@ -53,12 +53,12 @@ class HomeController extends Controller
         $edit = false;
         $sliders = Content::where('type', 'slider')
                             ->orderBy('id')
-                            ->take(5)
+                            ->take(10)
                             ->get();
 
         $courses = Content::where('type', 'course')
                             ->orderBy('id')
-                            ->take(4)
+                            ->take(10)
                             ->get();
 
         $reviews = Content::where('type', 'review')

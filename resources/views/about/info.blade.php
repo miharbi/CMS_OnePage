@@ -7,7 +7,7 @@
 
 <address>
   <strong>{{ trans('about.emails') }}</strong><br>
-  <small>
+  <small style="font-size: 120%;">
 	  @if(env('contact_email')!='')
 	  {{env('contact_email') }}
 	  @endif
